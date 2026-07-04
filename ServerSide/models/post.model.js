@@ -16,8 +16,9 @@ const postSchema = new Schema(
       required: true,
     },
     creator: {
-      type: Object,
-      required: false,
+      type: Schema.Types.ObjectId,
+      required: true,
+      ref: "User",
     },
   },
   {
@@ -25,4 +26,4 @@ const postSchema = new Schema(
   },
 );
 
-module.exports = mongoose.model('Post',postSchema);
+module.exports = mongoose.model("Post", postSchema);
