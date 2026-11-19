@@ -1,3 +1,7 @@
+if (!process.env.JWT_SECRET?.trim()) {
+  throw new Error("Set JWT_SECRET before starting the API.");
+}
+
 const express = require("express");
 const feedRouter = require("./routes/feed.route");
 const authRouter = require("./routes/auth.route");

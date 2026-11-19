@@ -12,8 +12,7 @@ module.exports = (req, res, next) => {
   const token = authHeader.split(" ")[1];
   let decodedToken;
   try {
-    // in the actual project make the token a variable in .env
-    decodedToken = jwt.verify(token, "REDACTED");
+    decodedToken = jwt.verify(token, process.env.JWT_SECRET);
   } catch (error) {
     error.statusCode = 500;
     throw error;

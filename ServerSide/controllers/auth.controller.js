@@ -65,8 +65,7 @@ exports.login = async (req, res, next) => {
 
     const token = jwt.sign(
       { email: user.email, userId: user._id.toString() },
-        // in the actual project make the token a variable in .env
-      "REDACTED",
+      process.env.JWT_SECRET,
       {
         expiresIn: "1h",
       },
